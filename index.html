@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071426">
+<title>AeroClub 2026 | Final Boarding Call</title>
+<style>
+:root{--navy:#071426;--navy2:#0c2038;--gold:#e8bd62;--cream:#f7f1e5;--muted:#b7c2d0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#142c48 0%,var(--navy) 56%);color:var(--cream);font-family:Arial,Helvetica,sans-serif;display:grid;place-items:center;padding:24px}
+main{width:min(100%,470px);text-align:center}
+.logo{width:112px;height:auto;object-fit:contain;border-radius:10px;margin:0 auto 14px;mix-blend-mode:screen}
+.eyebrow{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,serif;font-size:clamp(36px,10vw,54px);line-height:1.05;margin:15px 0 8px;font-weight:500}
+.sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0 auto 28px;max-width:330px}
+.panel{border:1px solid rgba(232,189,98,.65);border-radius:18px;padding:22px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));box-shadow:0 18px 55px #0005;text-align:left;position:relative;overflow:hidden}
+.panel:before,.panel:after{content:"";position:absolute;top:0;bottom:0;width:1px;border-left:1px dashed rgba(232,189,98,.45)}
+.panel:before{left:0}.panel:after{right:0}
+.ticket-top{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px dashed #657184;padding-bottom:16px}
+.ticket-top strong{font-size:12px;letter-spacing:2px;color:var(--gold)}
+.flight{font-size:12px;color:var(--muted)}
+.route{display:flex;justify-content:space-between;align-items:center;padding:22px 0 18px}
+.route small,.detail small{display:block;color:var(--muted);font-size:9px;letter-spacing:2px;margin-bottom:6px}
+.route b{font-size:23px;letter-spacing:1px}
+.route .arrow{color:var(--gold);font-size:22px}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid #40516a;padding-top:18px}
+.detail b{font-size:14px;line-height:1.4}
+.destination{margin-top:18px;padding-top:16px;border-top:1px solid #40516a}
+.destination small{color:var(--muted);font-size:9px;letter-spacing:2px}
+.destination b{display:block;margin-top:6px;color:var(--gold);font-size:17px}
+.cta{width:100%;margin-top:24px;border:0;border-radius:999px;background:var(--gold);color:#111b2a;font-weight:800;letter-spacing:1.3px;padding:16px 20px;font-size:12px;cursor:pointer}
+.cta:hover{filter:brightness(1.07)}
+.hidden{display:none}
+.reveal{animation:rise .65s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.message{margin:22px 8px 0;color:#d7deea;font-family:Georgia,serif;font-size:17px;line-height:1.6}
+.footer{margin-top:28px;color:#8190a4;font-size:10px;letter-spacing:2px}
+@media(prefers-reduced-motion:reduce){.reveal{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="assets/aeroclub-logo.jpg" alt="Aero Club Nitte logo">
+  <div class="eyebrow">AEROCLUB • NITTE</div>
+  <h1>Your final<br><span style="color:var(--gold);font-style:italic">boarding call.</span></h1>
+  <p class="sub">One last flight together. One more memory to make.<br>A special invitation awaits you.</p>
+
+  <button class="cta" id="revealBtn" type="button">VIEW YOUR BOARDING PASS&nbsp; →</button>
+
+  <section class="panel hidden" id="ticket" aria-label="Farewell boarding pass">
+    <div class="ticket-top">
+      <strong>BOARDING PASS</strong>
+      <span class="flight">AERO • 2026</span>
+    </div>
+    <div class="route">
+      <div><small>PASSENGER</small><b>OUR SENIORS</b></div>
+      <div class="arrow">✦ ─── ✈</div>
+      <div style="text-align:right"><small>FLIGHT</small><b>AC 026</b></div>
+    </div>
+    <div class="details">
+      <div class="detail"><small>DATE</small><b>30 NOVEMBER<br>2026</b></div>
+      <div class="detail"><small>BOARDING TIME</small><b>To be announced</b></div>
+      <div class="detail"><small>DESTINATION</small><b>ONE LAST<br>CELEBRATION</b></div>
+      <div class="detail"><small>VENUE</small><b>SHAMBHAVI HALL</b></div>
+    </div>
+    <div class="destination">
+      <small>ISSUED BY</small>
+      <b>AEROCLUB, NITTE</b>
+    </div>
+  </section>
+
+  <p class="message hidden" id="message">Your journey with AeroClub has given us memories, lessons and inspiration. Now it's our turn to celebrate you. We would love to have you with us for one last gathering.</p>
+  <div class="footer">ONE CLUB. MANY MEMORIES. ONE LAST FLIGHT.</div>
+</main>
+<script>
+const button=document.getElementById('revealBtn');
+button.addEventListener('click',()=>{
+  document.getElementById('ticket').classList.remove('hidden');
+  document.getElementById('ticket').classList.add('reveal');
+  document.getElementById('message').classList.remove('hidden');
+  document.getElementById('message').classList.add('reveal');
+  button.classList.add('hidden');
+});
+</script>
+</body>
+</html>
